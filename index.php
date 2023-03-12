@@ -70,15 +70,36 @@ Se non viene specificato nessun filtro, visualizzare come in precedenza tutti gl
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PHP Hotel</title>
+
+  <!-- BOOTSTRAP -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
 </head>
 <body>
-  <ul>
-    <?php foreach($hotels as $allhotels) { ?>
-      <?php foreach($allhotels as $hotel) { ?>
-        <li><?= $hotel ?> </li>
-      <?php } ?>
+  <div class=container>
+    <table class="table"> 
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Descrizione</th>
+          <th>Parcheggio</th>
+          <th>Voto</th>
+          <th>Distanza dal centro</th>          
+        </tr>
+      </thead>  
+    
+     <?php foreach($hotels as $allhotels) { ?>
+      <tbody>
+        <tr>
+          <td><?php echo $allhotels['name']; ?></td>
+          <td><?php echo $allhotels['description']; ?></td>
+          <td><?php echo $allhotels['parking'] ? "SI" : "NO"; ?></td>
+          <td><?php echo $allhotels['vote']; ?></td>
+          <td><?php echo $allhotels['distance_to_center']; ?></td>        
+        </tr>
+      </tbody>
     <?php } ?> 
-  </ul>
-
+ </table>
+</div>
 </body>
 </html>
